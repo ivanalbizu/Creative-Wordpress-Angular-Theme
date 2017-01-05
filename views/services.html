@@ -1,0 +1,30 @@
+<section class="banner-section color-white font-weight-300" style="background-image: url({{vm.posts.fields.service_background_header}})">
+  <h3 class="text-uppercase font-size-60 font-weight-300" ng-bind-html="vm.posts.title.rendered"></h3>
+  <p class="font-size-20 font-weight-300">{{vm.posts.fields.service_background_text_header}}</p>
+</section>
+
+<section class="container padding-top-70 padding-bottom-45">
+  <div class="row">
+    <div class="col-md-6 responsive-padding-bottom">
+      <img ng-src="{{vm.posts.fields.service_image}}" alt="" />
+    </div>
+    <div class="col-md-6">
+      <h4 class="text-uppercase font-size-24">{{vm.posts.fields.service_header_title_one}}</h4>
+      <div ng-bind-html="vm.posts.content.rendered"></div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid padding-top-45 padding-bottom-35 bg-color-gray-extradark">
+  <div class="row">
+    <div class="container">
+      <div class="row color-white text-center">
+        <div ng-repeat="service in vm.services" class="service-box col-md-3 col-sm-6">
+          <i class="fa fa-{{service.fields.service_icon_fa}}" aria-hidden="true"></i>
+          <h4 ng-bind-html="service.title.rendered" class="font-size-24"></h4>
+          <div ng-bind-html="service.content.rendered"><div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

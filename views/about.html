@@ -1,0 +1,56 @@
+<section class="banner-section color-white font-weight-300" style="background-image: url({{vm.posts.fields.about_background_header}})">
+  <h3 class="text-uppercase font-size-60 font-weight-300" ng-bind-html="vm.posts.title.rendered"></h3>
+  <p class="font-size-20 font-weight-300">{{vm.posts.fields.about_background_text_header}}</p>
+</section>
+
+<section class="container padding-top-70 padding-bottom-45">
+  <div class="row">
+    <div class="col-md-6 responsive-padding-bottom">
+      <h4 class="text-uppercase font-size-24">{{vm.posts.fields.about_header_title_one}}</h4>
+      <div ng-bind-html="vm.posts.content.rendered"></div>
+      <ul class="icons-bullet two-columns color-blue font-weight-700 responsive-padding-bottom">
+        <li><i class="glyphicon glyphicon-play-circle"></i><span>{{vm.posts.fields.about_first_item}}</span></li>
+        <li><i class="glyphicon glyphicon-play-circle"></i><span>{{vm.posts.fields.about_second_item}}</span></li>
+        <li><i class="glyphicon glyphicon-play-circle"></i><span>{{vm.posts.fields.about_third_item}}</span></li>
+        <li><i class="glyphicon glyphicon-play-circle"></i><span>{{vm.posts.fields.about_fourth_item}}</span></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <img ng-src="{{vm.posts.fields.about_image}}" alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid padding-top-45 padding-bottom-45 bg-color-gray-light">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h4 class="text-uppercase font-size-24">Our Team</h4>
+            <hr class="hr-underlined" />
+            <p class="padding-bottom-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+          </div>
+
+          <div ng-repeat="team in vm.teams" class="col-md-3 col-sm-6 col-xs-12 overflow-hidden">
+            <div class="team-box text-uppercase text-center">
+              <img ng-src="{{team.url_thumbnail.medium}}" alt="" />
+              <div class="mask">
+                <ul class="list-inline list-transition">
+                  <li><a target="_blank" ng-href="{{team.fields.about_team_linkedin}}"><i class="fa fa-linkedin square" aria-hidden="true"></i></a></li>
+                  <li><a target="_blank" ng-href="{{team.fields.about_team_google}}"><i class="fa fa-google square" aria-hidden="true"></i></a></li>
+                  <li><a target="_blank" ng-href="{{team.fields.about_team_twitter}}"><i class="fa fa-twitter square" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              <h5 ng-bind-html="team.title.rendered"></h5>
+              <p>{{team.fields.about_team_position}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

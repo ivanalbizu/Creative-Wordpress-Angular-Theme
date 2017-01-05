@@ -1,0 +1,38 @@
+<section class="banner-section color-white font-weight-300" style="background-image: url({{vm.item.fields.work_background_header}})">
+  <h3 class="text-uppercase font-size-60 font-weight-300" ng-bind-html="vm.item.title.rendered"></h3>
+  <p class="font-size-20 font-weight-300">{{vm.item.fields.work_background_text_header}}</p>
+</section>
+
+<section class="container padding-top-30 padding-bottom-45">
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-inline filter-horizontal pull-right">
+        <li>
+          <a ng-click="vm.chooseCategory('all')" ng-class="{active : vm.selectedCategory == 'all'}" href="javascript:void(0)">All</a>
+        </li>
+        <li ng-repeat="term in vm.terms">
+          <a ng-click="vm.chooseCategory(term.id)" ng-class="{active : vm.selectedCategory === term.id}" href="javascript:void(0)">{{term.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gallery">
+
+    <div ng-repeat="post in vm.posts | isCheckedCategory:vm.selectedCategory" class="animate-repeat">
+      <div class="feature">
+        <a href="#/works/{{post.id}}">
+          <img ng-src="{{post.url_thumbnail.medium}}" alt="" />
+          <div class="feature-text-container">
+            <div class="feature-text">
+              <h3 ng-bind-html="post.title.rendered"></h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>

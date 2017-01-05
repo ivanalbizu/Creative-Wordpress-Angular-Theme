@@ -1,0 +1,48 @@
+<section class="container padding-top-30"
+  ng-if="vm.restApiActive && vm.acfActive">
+
+  <div class="row">
+
+    <div class="col-xs-12">
+      <ul class="list-inline filter-horizontal pull-right">
+        <li>
+          <a ng-click="vm.chooseCategory('all')" ng-class="{active : vm.selectedCategory == 'all'}" href="javascript:void(0)">All</a>
+        </li>
+        <li ng-repeat="term in vm.terms">
+          <a ng-click="vm.chooseCategory(term.id)" ng-class="{active : vm.selectedCategory === term.id}" href="javascript:void(0)">{{term.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 gallery padding-bottom-70">
+      <div ng-repeat="post in vm.posts | isCheckedCategory:vm.selectedCategory" class="animate-repeat">
+        <div class="feature">
+          <a href="#/works/{{post.id}}">
+            <img ng-src="{{post.url_thumbnail.medium}}" alt="" />
+            <div class="feature-text-container">
+              <div class="feature-text">
+                <h3 ng-bind-html="post.title.rendered"></h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div ng-repeat="service in vm.services" class="service-box col-sm-3 col-xs-6 text-center">
+        <i class="fa fa-{{service.fields.service_icon_fa}}" aria-hidden="true"></i>
+        <a href="#/services"><h4 ng-bind-html="service.title.rendered" class="font-size-24"></h4></a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="container"
+  ng-if="!vm.restApiActive || !vm.acfActive">
+  <h4>Contacta con el administrador, algo está fallando y pueda serle útil</h4>
+  <p>Puede que necesite instalar o activar algún plugin</p>
+</div>
